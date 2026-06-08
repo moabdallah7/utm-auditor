@@ -1,0 +1,9 @@
+url,platform,campaign_id
+https://acme.com/sale?utm_source=Google&utm_medium=CPC&utm_campaign=spring-sale-2024,google,C001
+https://acme.com/sale?utm_source=facebook&utm_medium=social&utm_campaign=spring-sale-2024,facebook,C002
+https://acme.com/lp?utm_source=mailchimp&utm_medium=Email&utm_campaign=newsletter_june,email,C003
+https://acme.com/product?utm_source=google&utm_medium=banner&utm_campaign=product_launch,google,C004
+not-a-url,google,C005
+https://acme.com/home?utm_source=google&utm_medium=cpc,google,C006
+https://acme.com/sale?utm_source=Google&utm_medium=CPC&utm_campaign=spring-sale-2024,google,C001
+https://acme.com/deals?utm_source=%20tiktok&utm_medium=social&utm_campaign=summer_promo,tiktok,C007

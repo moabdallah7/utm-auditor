@@ -1,0 +1,21 @@
+{
+  "required_params": ["utm_source", "utm_medium", "utm_campaign"],
+  "casing": {
+    "utm_source": "lower",
+    "utm_medium": "lower",
+    "utm_campaign": "lower"
+  },
+  "separator": "underscore",
+  "allowed_values": {
+    "utm_medium": ["cpc", "email", "organic", "social", "referral", "display"]
+  },
+  "campaign_pattern": "^[a-z0-9_]+$",
+  "platform_source_map": {
+    "google":   ["google", "google_ads"],
+    "facebook": ["facebook", "meta"],
+    "email":    ["mailchimp", "klaviyo", "sendgrid"]
+  },
+  "severity_overrides": {
+    "duplicate_url": "warning"
+  }
+}

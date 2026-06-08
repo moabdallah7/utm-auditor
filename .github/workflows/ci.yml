@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    name: Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install
+        run: pip install -e ".[dev]"
+
+      - name: Lint (ruff)
+        run: ruff check utm_auditor tests
+
+      - name: Format check (ruff)
+        run: ruff format --check utm_auditor tests
+
+      - name: Type check (mypy)
+        run: mypy utm_auditor
+
+      - name: Tests
+        run: pytest --cov=utm_auditor --cov-report=term-missing -v

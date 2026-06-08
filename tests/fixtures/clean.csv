@@ -1,0 +1,4 @@
+url,platform,campaign_id
+https://example.com/lp?utm_source=google&utm_medium=cpc&utm_campaign=spring_sale,google,C001
+https://example.com/lp?utm_source=facebook&utm_medium=social&utm_campaign=summer_promo,facebook,C002
+https://example.com/lp?utm_source=mailchimp&utm_medium=email&utm_campaign=newsletter_june,email,C003

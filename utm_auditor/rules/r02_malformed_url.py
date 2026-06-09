@@ -19,9 +19,7 @@ def check(rows: list[RowData], config: Config) -> list[Finding]:
                     rule_id=_RULE_ID,
                     severity=severity,
                     message=f"Malformed URL: {reason}",
-                    suggested_fix=(
-                        "Ensure the URL starts with https:// and has a valid hostname"
-                    ),
+                    suggested_fix=("Ensure the URL starts with https:// and has a valid hostname"),
                 )
             )
     return findings

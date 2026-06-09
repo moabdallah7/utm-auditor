@@ -18,8 +18,7 @@ def check_source_platform_mismatch(rows: list[RowData], config: Config) -> list[
 
     severity = effective_severity(_ID_MISMATCH, "warning", config)
     map_lower: dict[str, list[str]] = {
-        k.lower(): [v.lower() for v in vs]
-        for k, vs in config.platform_source_map.items()
+        k.lower(): [v.lower() for v in vs] for k, vs in config.platform_source_map.items()
     }
 
     findings: list[Finding] = []
@@ -87,8 +86,7 @@ def check_unknown_platform(rows: list[RowData], config: Config) -> list[Finding]
                     rule_id=_ID_UNKNOWN,
                     severity=severity,
                     message=(
-                        f"Platform {platform_raw!r} is not in platform_source_map "
-                        f"(known: {known})"
+                        f"Platform {platform_raw!r} is not in platform_source_map (known: {known})"
                     ),
                     suggested_fix=(
                         f"Add {platform_raw!r} to platform_source_map in conventions.json"

@@ -77,10 +77,7 @@ def check_duplicate_url(rows: list[RowData], config: Config) -> list[Finding]:
                     url=url,
                     rule_id=_ID_URL,
                     severity=severity,
-                    message=(
-                        f"Exact URL appears {len(indices)} time(s) "
-                        f"(row indices: {indices})"
-                    ),
+                    message=(f"Exact URL appears {len(indices)} time(s) (row indices: {indices})"),
                     suggested_fix="Remove duplicate rows or confirm intentional reuse",
                 )
             )

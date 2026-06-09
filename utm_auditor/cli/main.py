@@ -30,10 +30,7 @@ _SEVERITY_RANK: dict[str, int] = {"error": 0, "warning": 1, "info": 2}
     "--url-column",
     default=None,
     metavar="COLUMN",
-    help=(
-        "Name of the URL column.  "
-        "Defaults to 'url'; falls back to auto-detection if absent."
-    ),
+    help=("Name of the URL column.  Defaults to 'url'; falls back to auto-detection if absent."),
 )
 @click.option(
     "--out",

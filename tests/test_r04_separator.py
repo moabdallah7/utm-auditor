@@ -55,7 +55,9 @@ def test_hyphen_config_flags_underscores():
 
 
 def test_mixed_separators_flagged():
-    row = make_row(0, "https://e.com?utm_source=google&utm_medium=cpc&utm_campaign=spring_sale-2024")
+    row = make_row(
+        0, "https://e.com?utm_source=google&utm_medium=cpc&utm_campaign=spring_sale-2024"
+    )
     findings = check([row], Config.defaults())
     assert len(findings) == 1
     assert "mixes" in findings[0].message

@@ -166,9 +166,7 @@ class Config:
 
         if errors:
             bullet = "\n  • "
-            raise ValueError(
-                f"Invalid config {path}:{bullet}{bullet.join(errors)}"
-            )
+            raise ValueError(f"Invalid config {path}:{bullet}{bullet.join(errors)}")
 
         return cls(
             required_params=list(required_params),

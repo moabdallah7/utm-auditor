@@ -53,9 +53,7 @@ def render_cleaned_csv(
             out: dict[str, str] = dict(row.raw)
             out[url_column] = normalized_url
             out["audit_status"] = status
-            out["audit_findings"] = "; ".join(
-                sorted({f.rule_id for f in row_findings})
-            )
+            out["audit_findings"] = "; ".join(sorted({f.rule_id for f in row_findings}))
             out["audit_changes"] = "; ".join(changes)
             writer.writerow(out)
 

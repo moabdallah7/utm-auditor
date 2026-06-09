@@ -51,9 +51,7 @@ def render_terminal(
         return
 
     # Group by severity → rule_id.
-    by_sev: dict[str, dict[str, list[Finding]]] = {
-        s: defaultdict(list) for s in _SEVERITY_ORDER
-    }
+    by_sev: dict[str, dict[str, list[Finding]]] = {s: defaultdict(list) for s in _SEVERITY_ORDER}
     for f in findings:
         by_sev[f.severity][f.rule_id].append(f)
 
@@ -74,8 +72,7 @@ def render_terminal(
         for rule_id in sorted(rules):
             rule_findings = rules[rule_id]
             console.print(
-                f"  [{style}]{rule_id}[/{style}]  "
-                f"[dim]({len(rule_findings)} finding(s))[/dim]"
+                f"  [{style}]{rule_id}[/{style}]  [dim]({len(rule_findings)} finding(s))[/dim]"
             )
 
             # Show per-row detail for errors and warnings; just count for info.
@@ -83,14 +80,8 @@ def render_terminal(
                 for f in rule_findings:
                     from rich.markup import escape
 
-                    short_url = (
-                        f.url[:_URL_TRUNCATE] + "…"
-                        if len(f.url) > _URL_TRUNCATE
-                        else f.url
-                    )
-                    console.print(
-                        f"    [dim]row {f.row_index + 1:>4}[/dim]  {escape(short_url)}"
-                    )
+                    short_url = f.url[:_URL_TRUNCATE] + "…" if len(f.url) > _URL_TRUNCATE else f.url
+                    console.print(f"    [dim]row {f.row_index + 1:>4}[/dim]  {escape(short_url)}")
                     console.print(f"           [dim]{escape(f.message)}[/dim]")
                     if f.suggested_fix:
                         console.print(
@@ -117,7 +108,6 @@ def _summary(console: Console, row_count: int, findings: list[Finding]) -> None:
     detail = ", ".join(parts) if parts else "[bold green]none[/bold green]"
     console.print()
     console.print(
-        f"[bold]Summary:[/bold] {row_count} row(s)  •  "
-        f"{len(findings)} finding(s)  •  {detail}"
+        f"[bold]Summary:[/bold] {row_count} row(s)  •  {len(findings)} finding(s)  •  {detail}"
     )
     console.print()

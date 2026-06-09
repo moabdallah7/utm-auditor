@@ -41,16 +41,11 @@ def load_csv(path: Path, url_column: str | None = None) -> tuple[list[RowData], 
     if dupes:
         raise ValueError(f"Duplicate column headers in {path}: {dupes}")
 
-    rows_raw: list[dict[str, str]] = [
-        {k: (v or "") for k, v in row.items()} for row in reader
-    ]
+    rows_raw: list[dict[str, str]] = [{k: (v or "") for k, v in row.items()} for row in reader]
 
     if url_column is not None:
         if url_column not in headers:
-            raise ValueError(
-                f"--url-column {url_column!r} not found. "
-                f"Available columns: {headers}"
-            )
+            raise ValueError(f"--url-column {url_column!r} not found. Available columns: {headers}")
         resolved_col = url_column
     else:
         resolved_col = _resolve_url_column(headers, rows_raw, path)
@@ -64,9 +59,7 @@ def load_csv(path: Path, url_column: str | None = None) -> tuple[list[RowData], 
     return rows, resolved_col
 
 
-def _resolve_url_column(
-    headers: list[str], rows: list[dict[str, str]], path: Path
-) -> str:
+def _resolve_url_column(headers: list[str], rows: list[dict[str, str]], path: Path) -> str:
     # Prefer the literal column named "url" to avoid false-positive detection.
     if "url" in headers:
         return "url"

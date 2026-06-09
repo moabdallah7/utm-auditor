@@ -86,7 +86,7 @@ class Config:
         return cls._from_dict(data, path)
 
     @classmethod
-    def _from_dict(cls, data: dict[str, object], path: Path) -> Config:  # type: ignore[type-arg]
+    def _from_dict(cls, data: dict[str, object], path: Path) -> Config:
         errors: list[str] = []
 
         required_params = data.get("required_params", ["utm_source", "utm_medium", "utm_campaign"])

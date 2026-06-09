@@ -1,5 +1,7 @@
 # utm-auditor
 
+![CI](https://github.com/moabdallah7/utm-auditor/actions/workflows/ci.yml/badge.svg)
+
 **An open-source campaign URL quality checker for marketing teams that need reliable attribution data — deterministic, dependency-light, and runnable in CI with no API keys.**
 
 utm-auditor reads a CSV of campaign URLs, runs a configurable rule engine against every row, and produces:
